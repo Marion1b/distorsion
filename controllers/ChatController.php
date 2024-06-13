@@ -5,20 +5,25 @@ class ChatController
     public function __construct()
     {
     }
-
-    /**A delete */
-    public function chatTest():void{
+    public function chat(): void
+    {
+        //init manager
+        $cm = new CategoryManager;
+        //get all posts from selected category
+        $categories = $cm->findAll();
         $route = "chat";
         require "templates/layout.phtml";
     }
-
-    public function chat($id): void
+    public function salon($id): void
     {
         //init manager
-        $instance = new SalonManager;
+        $mm = new MessageManager;
+        $cm = new CategoryManager;
+        $sm = new SalonManager;
         //get all posts from selected category
-        $messages = $instance->findAllFromSalon($_GET['salon']);
-        $route = "chat";
+        $messages = $mm->findBySalon($id);
+        $categories = $cm->findAll();
+        $route = "salon";
         require "templates/layout.phtml";
     }
 }

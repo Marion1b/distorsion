@@ -1,0 +1,50 @@
+<h1>Le chat</h1>
+
+<section class="categories">
+    <h2>Les catégories</h2>
+    <ul>
+        <?php
+        foreach ($categories as $category) {
+        ?>
+            <li><?= $category->getName() ?></li>
+            <ul>
+                <?php
+
+
+                $salons = $sm->findByCategory($category->getId());
+
+                foreach ($salons as $salon) {
+
+                ?>
+                    <li><a href="index.php?route=chat&salon=<?= $salon->getId() ?>"><?= $salon->getName() ?></a></li>
+                <?php
+                }
+                ?>
+            </ul>
+        <?php
+        }
+        ?>
+    </ul>
+</section>
+
+<section class="messages">
+    <h2>Salon <?= $sm->findOne($id)->getName() ?> </h2>
+    <?php
+    foreach ($messages as $message) {
+    ?>
+        <p>Le <?= $message->getCreatedAt()->format('d/m/Y') ?> à <?= $message->getCreatedAt()->format('h:i:s') ?></p>
+        <p><?= $message->getContent() ?></p>
+        <p><?= $message->getAuthor()->getName() ?></p>
+    <?php
+    }
+    ?>
+</section>
+
+<section class="chat">
+    <h2 hidden>Le chat</h2>
+    <form action="" method="post">
+        <label for="message">Message</label>
+        <textarea name="message" id="message"></textarea>
+        <button type="submit">Envoyer</button>
+    </form>
+</section>

@@ -19,6 +19,21 @@ class PageController{
         $route = "404";
         require "templates/layout.phtml";
     }
+    
+    public function userProfil():void{
+        $route="user-profil";
+        
+        $um = new UserManager();
+        $mm = new MessageManager();
+        
+        $user = $um->findByEmail($_SESSION['email']);
+        $userMessages = $mm->findByUser($user->getId());
+        
+        
+        
+        require "templates/layout.phtml";
+    }
+    
 }
 
 ?>

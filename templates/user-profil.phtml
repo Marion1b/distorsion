@@ -1,0 +1,43 @@
+<main>
+    <section>
+       <h2>Bienvenue <?= $user->getName()?></h2>
+    
+    <p>Email du compte : <?= $user->getEmail() ?></p> 
+    </section>
+    <section>
+        
+        <table>
+            <thead>
+                <th>
+                    #
+                </th>
+                <th>
+                    Salon
+                </th>
+                <th>
+                    Contenu
+                </th>
+                
+                
+                
+            </thead>
+            <tbody>
+                <tr>
+                    <?php foreach($userMessages as $messages)  {?>
+                <td><?= $messages->getId() ?></td>
+                <td><?= $messages->getSalon()->getName() ?></td>
+                <td><?= $messages->getContent() ?></td>
+                <?php } ?>
+            </tr>
+            </tbody>
+            
+        </table>
+        
+        
+    </section>
+    
+    
+    
+    
+    
+</main>

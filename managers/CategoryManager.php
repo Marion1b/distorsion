@@ -1,8 +1,5 @@
 <?php
-/**
- * @author : Gaellan
- * @link : https://github.com/Gaellan
- */
+
 
 
 class CategoryManager extends AbstractManager
@@ -12,24 +9,23 @@ class CategoryManager extends AbstractManager
         parent::__construct();
     }
 
-    public function findAll() : array
+    public function findAll(): array
     {
         $query = $this->db->prepare('SELECT * FROM categories');
         $query->execute();
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
         $categories = [];
 
-        foreach($result as $item)
-        {
+        foreach ($result as $item) {
             $category = new Category($item["name"]);
-            $category->setId($item["id"]);
+            $category->setId($item["category_id"]);
             $categories[] = $category;
         }
 
         return $categories;
     }
 
-    public function findOne(int $id) : ? Category
+    public function findOne(int $id): ?Category
     {
         $query = $this->db->prepare('SELECT * FROM categories WHERE category_id=:id');
         $parameters = [
@@ -38,8 +34,7 @@ class CategoryManager extends AbstractManager
         $query->execute($parameters);
         $result = $query->fetch(PDO::FETCH_ASSOC);
 
-        if($result)
-        {
+        if ($result) {
             $category = new Category($result["name"]);
             $category->setId($result["category_id"]);
 
@@ -49,7 +44,7 @@ class CategoryManager extends AbstractManager
         return null;
     }
 
-    public function findBySalon(int $salonId) : array
+    public function findBySalon(int $salonId): array
     {
         $query = $this->db->prepare('SELECT categories.name FROM categories 
     JOIN salons ON salons.category_id=categories.category_id 
@@ -62,8 +57,8 @@ class CategoryManager extends AbstractManager
 
         return $result;
     }
-    
-    public function findOneName(string $name) : ? Category
+
+    public function findOneName(string $name): ?Category
     {
         $query = $this->db->prepare('SELECT * FROM categories WHERE name=:name');
         $parameters = [
@@ -72,8 +67,7 @@ class CategoryManager extends AbstractManager
         $query->execute($parameters);
         $result = $query->fetch(PDO::FETCH_ASSOC);
 
-        if($result)
-        {
+        if ($result) {
             $category = new Category($result["name"]);
             $category->setId($result["category_id"]);
 
@@ -83,5 +77,3 @@ class CategoryManager extends AbstractManager
         return null;
     }
 }
-
-?>

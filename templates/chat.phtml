@@ -1,29 +1,43 @@
 <main class="main-chat">
-
 <h1 hidden>Le chat</h1>
-
 <aside class="categories">
     <h2>Les catégories</h2>
     <ul class="navbar-categories">
-        <li>Catégorie 1</li>
-        <ul class="navbar-salons">
-            <li class="salon-active">Salon 1</li>
-            <li>Salon 2</li>
-        </ul>
+        <?php
+        foreach ($categories as $category) {
+        ?>
+            <li><?= $category->getName() ?></li>
+            <ul class="navbar-salons">
+                <?php
+
+                $sm = new SalonManager;
+                $salons = $sm->findByCategory($category->getId());
+
+                foreach ($salons as $salon) {
+
+                ?>
+                    <li><a href="index.php?route=chat&salon=<?= $salon->getId() ?>"><?= $salon->getName() ?></a></li>
+                <?php
+                }
+                ?>
+            </ul>
+        <?php
+        }
+        ?>
     </ul>
 </aside>
-
 <div class="background-chat">
 <section class="chat-container">
     <h2>Le chat</h2>
-    <form class="chat-form" action="" method="post">
+    <p>Sélectionnez un salon pour envoyer un message</p>
+    <!--Envoyer un message
+        <form class="chat-form" action="" method="post">
         <div class="field">
             <label for="message">Message</label>
             <textarea name="message" id="message"></textarea>
         </div>
         <button type="submit">Envoyer</button>
-    </form>
+    </form>-->
 </section>
 </div>
-
 </main>
