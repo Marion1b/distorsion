@@ -34,6 +34,15 @@ class PageController{
         require "templates/layout.phtml";
     }
     
+    public function adminPage():void
+    {
+        $route="adminpage";
+        
+        
+        require "templates/layout.phtml";
+        
+    }
+    
 }
 
 ?>

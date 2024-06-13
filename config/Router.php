@@ -45,6 +45,13 @@ class Router
             $auc->disconnect();
         
         }
+        elseif(isset($get["route"]) && $get["route"] === "adminpage" ){
+            
+            
+            
+            $pc->adminPage();
+        
+        }
         
         
         

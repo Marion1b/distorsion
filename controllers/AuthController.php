@@ -33,9 +33,24 @@ class AuthController
             if ($isPasswordCorrect) {
                 //connect session
                 $_SESSION['email'] = $email;
-                //redirect to home
+                
+                
+                if($userFound->getRole() === "ADMIN")
+                {
+                    $route= "adminpage";
+                     $_SESSION['role'] = "ADMIN";
+                     
+                    require 'templates/layout.phtml';  
+                
+                
+                }
+                else
+                {
+                  //redirect to home
                 $route = "home";
-                require 'templates/layout.phtml';
+                require 'templates/layout.phtml';  
+                    
+                }
             } else {
                 $route = "error";
                 $error = "Le mot de passe est erroné, veuillez réessayer";
