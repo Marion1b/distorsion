@@ -42,7 +42,7 @@
 
 <section class="chat">
     <h2 hidden>Le chat</h2>
-    <form action="" method="post">
+    <form action="index.php?route=check-message&salon=<?= $id ?>" method="post">
         <label for="message">Message</label>
         <textarea name="message" id="message"></textarea>
         <button type="submit">Envoyer</button>
