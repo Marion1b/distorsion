@@ -49,45 +49,23 @@ class SalonManager extends AbstractManager
 
     public function findByCategory(int $categoryId): array
     {
-        $query = $this->db->prepare('SELECT salons.name FROM salons
-    JOIN categories ON categories.category_id=salons.salon_id 
-    WHERE categories.category_id=:category_id');
+        $query = $this->db->prepare('SELECT salons.* FROM salons
+    JOIN categories ON categories.category_id=salons.category_id 
+    WHERE salons.category_id=:category_id');
         $parameters = [
             "category_id" => $categoryId
         ];
         $query->execute($parameters);
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
-        return $result;
+        $salons = [];
+        foreach ($result as $item) {
+
+            $salon = new Salon($item["name"]);
+            $salon->setId($item["salon_id"]);
+            $salons[] = $salon;
+        }
+
+        return $salons;
     }
-
-    // public function findAllMessagesFromSalon($id): array
-    // {
-
-    //     $userManager = new UserManager();
-    //     $salonManager = new SalonManager();
-
-    //     $query = $this->db->prepare('SELECT * FROM salons
-    //     JOIN messages ON salons.salon_id = messages.salon_id 
-    //     WHERE salons.salon_id = :id');
-    //     $parameters = [
-    //         "id" => $id
-    //     ];
-    //     $query->execute($parameters);
-    //     $results = $query->fetchAll(PDO::FETCH_ASSOC);
-    //     $messages = [];
-
-
-    //     //private string $content, private User $author, private Salon $salon, private DateTime $createdAt = new DateTime())
-    //     foreach ($results as $message) {
-
-    //     $userManager->findOne($message['user_id'])
-
-    //         $message = new Message($message["name"]);
-    //         $message->setId($id);
-    //         array_push($messages, $message);
-    //     }
-
-    //     return $messages;
-    // }
 }
