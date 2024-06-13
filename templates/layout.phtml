@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="concurrent de discord">
+    <title>Distorsion</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.php">
+                        Distorsion
+                    </a>    
+                </li>
+                <li>
+                    <a href="index.php?route=chat">
+                        chat
+                    </a>
+                </li>
+                <li>
+                    <a href="index.php?route=a-propos">
+                        à propos
+                    </a>
+                </li>
+                <li>
+                    <a href="index.php?route=connexion">
+                        connexion
+                    </a>
+                </li>
+                <li>
+                    <a href="index.php?route=inscription">
+                        inscription
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <?php
+
+        require "templates/$route.phtml";
+
+        ?>
+    </main>
+</body>
+</html>
