@@ -226,3 +226,36 @@ CHAT
 .chat-form button:hover{
     outline: var(--zomp) .3rem dotted;
 }
+
+/* ==========================================================================
+a propos
+========================================================================== */
+
+.a-propos-background{
+    background-image: url("img/maya.png");
+    background-size: cover;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.a-propos h1{
+    font-family: "Kaushan Script", cursive;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.a-propos-section{
+    background-color: #f8e56cd0;
+    width: 80%;
+    max-width: 80rem;
+    padding: 4rem;
+    border-radius: 2rem;
+}
+
+.a-propos-section p {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+}
