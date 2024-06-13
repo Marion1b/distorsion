@@ -1,0 +1,228 @@
+/* ==========================================================================
+variables
+========================================================================== */
+:root{
+    --marian-blue: #393d8aff;
+    --dark-blue: #3b0ab1ff;
+    --fawn: #f1ac6fff;
+    --maize: #f8e56cff;
+    --zomp: #669f80ff;
+}
+
+
+/* ==========================================================================
+TOOLS
+========================================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html {
+
+    font-size: 62.5%; 
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: "Libre Baskerville", serif;
+}
+
+/* ==========================================================================
+Header
+========================================================================== */
+header{
+    background-color: var(--zomp);
+    padding: 1.5rem 0;
+}
+
+.header-navbar{
+    display: flex;
+    list-style-type: none;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header-navbar a{
+    color: #000;
+    text-decoration: none;
+}
+
+.header-navbar img{
+    width: 7.5rem;
+}
+
+.navbar-right{
+    display: flex;
+}
+
+.navbar-right a{
+    padding: 2rem;
+}
+
+/* ==========================================================================
+Home
+========================================================================== */
+
+.home-page{
+    background-image: url("img/buddha.png");
+    background-size: cover;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.home-page h1{
+    background-color: rgba(241, 172, 111, 0.808);
+    backdrop-filter: blur(10px);
+    width: 85rem;
+    padding: 2rem;
+    font-weight: 400;
+    font-size: 1.6rem;
+    border-radius: 2rem;
+    text-align: center;
+}
+
+.home-page button{
+    padding:3rem 8rem;
+    border: none;
+    border-radius: 2rem;
+    background: linear-gradient(to right, var(--fawn), var(--maize), var(--zomp));
+    font-family: "Libre Baskerville", serif;
+    font-size: 2rem;
+    transition: all 200ms ease-in-out;
+    cursor: pointer;
+}
+
+.home-page button:hover{
+    transform: translate(.5rem, -.5rem);
+    box-shadow: -.5rem .5rem 1rem #3b0ab1a1;
+}
+
+/* ==========================================================================
+CHAT
+========================================================================== */
+
+.main-chat{
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+}
+
+.categories{
+    background-color: var(--marian-blue);
+    padding: 2rem;
+    height: 90vh;
+    width: 30%;
+}
+
+.categories h2{
+    margin: 5rem 0;
+    font-weight: bold;
+}
+
+.navbar-categories{
+    list-style-type: none;
+    padding: 0;
+    line-height: 3rem;
+    font-size: 2rem;
+}
+
+.navbar-salons{
+    padding: 0;
+    list-style: none;
+    border-left: solid #fff .3rem;
+    font-size: 1.6rem;
+}
+
+.navbar-salons li{
+    padding-left: 1rem;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+}
+
+.navbar-salons li:hover{
+    background-color: var(--zomp);
+}
+
+.salon-active{
+    background-color: var(--zomp);
+}
+
+.background-chat{
+    background-image: url("img/chakra.png");
+    background-size: cover;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat-container{
+    background-color: #393d8aaf;
+    backdrop-filter: blur(10px);
+    height: 80%;
+    width: 80%;
+    max-width: 80rem;
+    border-radius: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-container h2{
+    font-family: "Kaushan Script", cursive;
+    font-size: 2.4rem;
+    margin: 2rem;
+}
+
+.chat-form{
+    display: flex;
+    align-items: end;
+    margin: 2rem;
+}
+
+.chat-form .field{
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-form .field label{
+    font-size: 1.2rem;
+    margin: 1rem;
+}
+
+.chat-form .field textarea{
+    width: 40vw;
+    max-width: 50rem;
+    margin-right: 2rem;
+    background-color: var(--marian-blue);
+    border: var(--maize) 3px solid;
+    border-radius: 1.5rem;
+    font-family: "Libre Baskerville", serif;
+    font-size: 1.2rem;
+    color: #fff;
+    padding: .5rem;
+}
+
+.chat-form .field textarea:focus{
+    outline: var(--zomp) .3rem dotted;
+}
+
+.chat-form button{
+    background-color: var(--marian-blue);
+    border: var(--maize) .3rem solid;
+    padding: 1.2rem;
+    border-radius: 1rem;
+    color: #fff;
+    transition: all 200ms ease-in-out;
+    cursor: pointer;
+}
+
+.chat-form button:hover{
+    outline: var(--zomp) .3rem dotted;
+}

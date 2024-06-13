@@ -6,6 +6,12 @@ class ChatController
     {
     }
 
+    /**A delete */
+    public function chatTest():void{
+        $route = "chat";
+        require "templates/layout.phtml";
+    }
+
     public function chat($id): void
     {
         //init manager

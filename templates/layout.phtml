@@ -4,17 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="concurrent de discord">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/style.css">
     <title>Distorsion</title>
 </head>
 <body>
     <header>
         <nav>
-            <ul>
+            <ul class="header-navbar">
                 <li>
                     <a href="index.php">
-                        Distorsion
+                        <img src="style/img/logo.png" alt="logo distorsion">
                     </a>    
                 </li>
+                <div class="navbar-right">
                 <li>
                     <a href="index.php?route=chat">
                         chat
@@ -35,15 +40,16 @@
                         inscription
                     </a>
                 </li>
+                </div>
             </ul>
         </nav>
     </header>
-    <main>
+    
         <?php
 
         require "templates/$route.phtml";
 
         ?>
-    </main>
+    
 </body>
 </html>

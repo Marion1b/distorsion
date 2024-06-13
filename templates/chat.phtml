@@ -1,17 +1,29 @@
-<h1>Le chat</h1>
+<main class="main-chat">
 
-<section class="categories">
+<h1 hidden>Le chat</h1>
+
+<aside class="categories">
     <h2>Les catégories</h2>
-    <ul>
-
+    <ul class="navbar-categories">
+        <li>Catégorie 1</li>
+        <ul class="navbar-salons">
+            <li class="salon-active">Salon 1</li>
+            <li>Salon 2</li>
+        </ul>
     </ul>
-</section>
+</aside>
 
-<section class="chat">
-    <h2 hidden>Le chat</h2>
-    <form action="" method="post">
-        <label for="message">Message</label>
-        <textarea name="message" id="message"></textarea>
+<div class="background-chat">
+<section class="chat-container">
+    <h2>Le chat</h2>
+    <form class="chat-form" action="" method="post">
+        <div class="field">
+            <label for="message">Message</label>
+            <textarea name="message" id="message"></textarea>
+        </div>
         <button type="submit">Envoyer</button>
     </form>
 </section>
+</div>
+
+</main>

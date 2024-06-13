@@ -11,7 +11,7 @@ class Router{
         $cc = new ChatController();
         $auc = new AuthController();
         if(isset($get["route"]) && $get["route"]==="chat"){
-            $cc->chat();
+            $cc->chatTest();
         }else if(isset($get["route"]) && $get["route"]==="a-propos"){
             $pc->about();
         }else if(isset($get["route"]) && $get["route"]==="connexion"){
