@@ -1,32 +1,16 @@
 <?php
 
-abstract class AbstractManager {
-    
+abstract class AbstractManager
+{
+
     protected PDO $db;
-    
-    public function __construct(){
-        
-        $host = "db.3wa.io";
-    $port = "3306";
-    $dbname = "distortion";
-    $connexionString = "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8";
 
-    $user = "benjaminhaverbeke";
-    $password = "052a871a0c9fd8d6553a4521eb1cee3b";
-        
-        
+    public function __construct()
+    {
         $this->db = new PDO(
-    $connexionString,
-    $user,
-    $password);
-        
-        
+            "mysql:host=localhost;port=3306;dbname=distorsion",
+            "root",
+            ""
+        );
     }
-    
-    
-    
 }
-
-
-
-?>

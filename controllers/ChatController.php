@@ -9,9 +9,9 @@ class ChatController
     public function chat($id): void
     {
         //init manager
-        $instance = new SalonManager;
+        $instance = new MessageManager;
         //get all posts from selected category
-        $messages = $instance->findAllFromSalon($_GET['salon']);
+        $messages = $instance->findBySalon($id);
         $route = "chat";
         require "templates/layout.phtml";
     }

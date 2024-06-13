@@ -6,6 +6,17 @@
 
     </ul>
 </section>
+<section class="messages">
+    <?php
+    foreach ($messages as $message) {
+    ?>
+        <p>Le <?= $message->getCreatedAt()->format('d/m/Y') ?> à <?= $message->getCreatedAt()->format('h:i:s') ?></p>
+        <p><?= $message->getContent() ?></p>
+        <p><?= $message->getAuthor()->getName() ?></p>
+    <?php
+    }
+    ?>
+</section>
 
 <section class="chat">
     <h2 hidden>Le chat</h2>
