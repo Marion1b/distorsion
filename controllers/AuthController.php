@@ -20,7 +20,7 @@ class AuthController
         //init manager
         $instance = new UserManager;
         //find user 
-        $userFound = $instance->findOne($email);
+        $userFound = $instance->findByEmail($email);
         //if user not found in db give error
         if (!$userFound) {
             $route = "error";
@@ -58,10 +58,10 @@ class AuthController
         $role = 'USER';
         $hash = password_hash($password, PASSWORD_DEFAULT);
         //init manager
-        $user = new User($_POST['username'], $email, $hash, $_POST['role'], $_POST['createdAt']);
+        $user = new User($name, $email, $hash, $role);
         $instance = new UserManager;
         //find user 
-        $userFound = $instance->findOne($email);
+        $userFound = $instance->findByEmail($email);
         //if email allready used give error
         if ($userFound) {
             $route = "error";
@@ -69,7 +69,7 @@ class AuthController
             require 'templates/layout.phtml';
             //if email not found create new user
         } else {
-            $instance->create($user);
+            $instance->createUser($user);
             $_SESSION['email'] = $email;
             //redirect to home
             $route = "home";
@@ -80,7 +80,7 @@ class AuthController
     {
         session_destroy();
         $route = "deconnexion";
-        require 'templates/layout.phtml';
+        header('Location: index.php');
     }
     public function error(): void
     {

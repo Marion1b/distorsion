@@ -21,9 +21,35 @@ class Router
             $pc->about();
         } else if (isset($get["route"]) && $get["route"] === "connexion") {
             $auc->signIn();
-        } else if (isset($get["route"]) && $get["route"] === "inscription") {
+        
+        
+        }
+        elseif(isset($get["route"]) && $get["route"]==="check-signup"){
+            
+            $auc->checkSignUp();
+        }
+        elseif(isset($get["route"]) && $get["route"]==="check-signin"){
+            
+            $auc->checkSignIn();
+        }
+        else if(isset($get["route"]) && $get["route"] === "inscription"){
             $auc->signUp();
-        } else if (!isset($get["route"])) {
+        }
+        elseif(isset($get["route"]) && $get["route"] === "user-profil"){
+            
+            $pc->userProfil();
+        
+        }
+        elseif(isset($get["route"]) && $get["route"] === "deconnexion"){
+            
+            $auc->disconnect();
+        
+        }
+        
+        
+        
+        else if(!isset($get["route"])){
+
             $pc->home();
         } else {
             $pc->notFound();

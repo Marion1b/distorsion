@@ -124,9 +124,38 @@ class MessageManager extends AbstractManager
         return $posts;
     }
 
+    
+    public function findByUser(int $userId) : array
+        {
+            
+            $parameters = [
+            'user_id' => $userId
+                    ];
+        
+            $query = $this->db->prepare('SELECT * FROM messages WHERE user_id=:user_id');
+        
+            $query->execute($parameters);
+        
+            $result = $query->fetchAll(PDO::FETCH_ASSOC);
+            $posts = [];
+        
+            foreach($result as $item)
+            {
+            $salon = $sm->findOne($item["salon_id"]);
+            $user = $um->findOne($item["user_id"]);
+            $post = new Message($item["content"], $user, $salon, DateTime::createFromFormat('Y-m-d H:i:s', $item["datetime"]));
+            $post->setId($item["message_id"]);
+            
+            $posts[] = $post;
+            }
 
-    public function deleteMessage(int $message): void
-    {
+            return $posts;
+        }
+    
+    
+    public function deleteMessage(int $message) : void
+        {
+        
 
         $parameters = [
             'id' => $message

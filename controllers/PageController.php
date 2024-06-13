@@ -24,8 +24,10 @@ class PageController{
         $route="user-profil";
         
         $um = new UserManager();
-        $user = $um->findByEmail($_SESSION['email']);
+        $mm = new MessageManager();
         
+        $user = $um->findByEmail($_SESSION['email']);
+        $userMessages = $mm->findByUser($user->getId());
         
         
         
