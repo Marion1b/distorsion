@@ -8,7 +8,7 @@ abstract class AbstractManager {
         
         $host = "db.3wa.io";
     $port = "3306";
-    $dbname = "distortion";
+    $dbname = "benjaminhaverbeke_distorision";
     $connexionString = "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8";
 
     $user = "benjaminhaverbeke";
@@ -23,7 +23,7 @@ abstract class AbstractManager {
         
     }
     
-    
+    //$dbname = "distortion";
     
 }
 

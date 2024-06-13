@@ -22,7 +22,7 @@ class UserManager extends AbstractManager
         if($result)
         {
             $user = new User($result["name"], $result["email"], $result["password"], $result["role"]);
-            $user->setId($result["id"]);
+            $user->setId($result["user_id"]);
 
             return $user;
         }
@@ -44,7 +44,7 @@ class UserManager extends AbstractManager
         if($result)
         {
             $user = new User($result["name"], $result["email"], $result["password"], $result["role"]);
-            $user->setId($result["id"]);
+            $user->setId($result["user_id"]);
 
             return $user;
         }
@@ -55,15 +55,18 @@ class UserManager extends AbstractManager
     public function createUser(User $user) : void
     {
         
-
-        $query = $this->db->prepare('INSERT INTO users (user_id, name, email, password, role) VALUES (NULL, :name, :email, :password, :role)');
         $parameters = [
-            "username" => $user->getName(),
+            "name" => $user->getName(),
             "password" => $user->getPassword(),
             "email" => $user->getEmail(),
             "role" => $user->getRole(),
             
         ];
+        
+        
+
+        $query = $this->db->prepare('INSERT INTO users (email, name, password, role) VALUES (:email, :name, :password, :role)');
+        
 
         $query->execute($parameters);
 
@@ -81,7 +84,7 @@ class UserManager extends AbstractManager
         foreach($usersList as $user){
             
             $newUser = new User($user["name"], $user["email"], $user["password"], $user["role"]);
-            $newUser->setId($user['id']);
+            $newUser->setId($user['user_id']);
             array_push($usersTable, $newUser);
             
             
