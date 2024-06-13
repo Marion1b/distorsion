@@ -259,3 +259,60 @@ a propos
     font-size: 1.2rem;
     margin: 1rem 0;
 }
+
+/* ==========================================================================
+Inscription / connexion
+========================================================================== */
+
+.main-inscription, .main-connexion{
+    height: 90vh;
+    background-image: url("img/spiritualite.png");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.connexion-container, .inscription-container{
+    background-color: rgba(241, 172, 111, 0.705);
+    padding: 4rem;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 80rem;
+}
+
+.connexion-container h1, .inscription-container h1{
+    font-family: "Kaushan Script", cursive;
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+}
+
+.connexion-container form, .inscription-container form{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+}
+
+.connexion-container form label, .inscription-container form label{
+    margin: 1rem 0;
+}
+
+.connexion-container form button, .inscription-container form button{
+    border: var(--marian-blue) .2rem solid;
+    border-radius: 1rem;
+    background: linear-gradient(to right, var(--fawn), var(--maize), var(--zomp));
+    margin: 3rem 0;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+}
+
+.connexion-container form button:hover, .inscription-container form button:hover{
+    transform: translate(.5rem, -.5rem);
+    box-shadow: -.5rem .5rem .5rem var(--zomp);
+}
