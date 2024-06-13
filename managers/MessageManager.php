@@ -69,7 +69,7 @@ class MessageManager extends AbstractManager {
         foreach($postsList as $post){
             
             
-            $salon = $sm->findByPost($post["message_id"]);
+            $salon = $sm->findOne($post["salon_id"]);
             $user = $um->findOne($post["user_id"]);
             
             $newMessage = new Message($post["content"], $user, $salon, DateTime::createFromFormat('Y-m-d H:i:s', $post["datetime"]));
@@ -101,7 +101,7 @@ class MessageManager extends AbstractManager {
 
         if($result)
         {
-            $categories = $sm->findByPost($result["message_id"]);
+            $salon = $sm->findOne($result["salon_id"]);
             $user = $um->findOne($result["user_id"]);
             $message = new Message($result["content"], $user, $salon, DateTime::createFromFormat('Y-m-d H:i:s', $result["datetime"]));
             $message->setId($result["message_id"]);
@@ -129,7 +129,7 @@ class MessageManager extends AbstractManager {
 
         foreach($result as $item)
         {
-            $salon = $sm->findByPost($item["message_id"]);
+            $salon = $sm->findOne($item["salon_id"]);
             $user = $um->findOne($item["user_id"]);
             $post = new Message($item["content"], $user, $salon, DateTime::createFromFormat('Y-m-d H:i:s', $item["datetime"]));
             $post->setId($item["message_id"]);
