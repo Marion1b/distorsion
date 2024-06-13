@@ -14,8 +14,9 @@ class Router
         if (isset($get["route"]) && $get["route"] === "chat") {
             if (isset($get['salon'])) {
                 $cc->salon($get['salon']);
+            } else {
+                $cc->chat();
             }
-            $cc->chat();
         } else if (isset($get["route"]) && $get["route"] === "a-propos") {
             $pc->about();
         } else if (isset($get["route"]) && $get["route"] === "connexion") {
