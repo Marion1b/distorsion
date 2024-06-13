@@ -23,7 +23,11 @@
             </thead>
             <tbody>
                 <tr>
-                <td></td>
+                    <?php foreach($userMessages as $messages)  {?>
+                <td><?= $messages->getId() ?></td>
+                <td><?= $messages->getSalon()->getName() ?></td>
+                <td><?= $messages->getContent() ?></td>
+                <?php } ?>
             </tr>
             </tbody>
             
