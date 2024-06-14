@@ -24,7 +24,7 @@ class AuthController
         //if user not found in db give error
         if (!$userFound) {
             $route = "error";
-            $error = "Nous n'avons pas cet email en utilisateur, veuillez-vous inscrire";
+            $error = "Nous n'avons pas encore enregistré cette entité email dans notre espace cosmique, veuillez-vous inscrire";
             require 'templates/layout.phtml';
             //if user found check password
         } else {
@@ -38,7 +38,7 @@ class AuthController
                 require 'templates/layout.phtml';
             } else {
                 $route = "error";
-                $error = "Le mot de passe est erroné, veuillez réessayer";
+                $error = "L'entité mot de passe ne correspond pas, veuillez entrer en introspection pour le révéler à vous et réessayer";
                 require 'templates/layout.phtml';
             }
         }
@@ -65,7 +65,7 @@ class AuthController
         //if email allready used give error
         if ($userFound) {
             $route = "error";
-            $error = "Email déjà utilisé, veuillez vous connecter ou choisir un autre email.";
+            $error = "Cet entité Email est déjà dans notre espace cosmique, veuillez entrer en introspection pour le révéler à vous ou réessayez avec avec un autre email";
             require 'templates/layout.phtml';
             //if email not found create new user
         } else {
