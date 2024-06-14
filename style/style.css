@@ -271,6 +271,51 @@ CHAT
   outline: var(--zomp) 0.3rem dotted;
 }
 
+.pub{
+    background-color: var(--maize);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+}
+
+.pub-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    width: 80%;
+    border: var(--dark-blue) .3rem solid;
+    margin: .5rem 0;
+    cursor: pointer;
+    transition: all 400ms ease-in-out;
+    background-color: var(--maize);
+}
+
+.pub-card:hover{
+    transform: scale(1.5) rotate(1turn);
+}
+
+.pub-img-container{
+    width: 15rem;
+}
+
+.pub-img-container img{
+    width: 100%;
+}
+
+.pub-card .barre{
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    color: red;
+}
+
+.pub-card .prix{
+    color: green;
+}
 /* ==========================================================================
 a propos
 ========================================================================== */
