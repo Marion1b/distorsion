@@ -302,6 +302,17 @@ Inscription / connexion
     margin: 1rem 0;
 }
 
+.connexion-container form input, .inscription-container form input{
+    border: var(--marian-blue) .3rem solid;
+    background-color: transparent;
+    padding: 1rem 5rem;
+    border-radius: 2rem;
+}
+
+.connexion-container form input:focus, .inscription-container form input:focus{
+    outline: var(--zomp) 3px dotted;
+}
+
 .connexion-container form button, .inscription-container form button{
     border: var(--marian-blue) .2rem solid;
     border-radius: 1rem;
