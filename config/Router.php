@@ -11,6 +11,8 @@ class Router
         $pc = new PageController();
         $cc = new ChatController();
         $auc = new AuthController();
+        $am = new AdminController();
+        
         if (isset($get["route"]) && $get["route"] === "chat") {
             if (isset($get['salon'])) {
                 $cc->salon($get['salon']);
@@ -50,6 +52,20 @@ class Router
             
             
             $pc->adminPage();
+        
+        }
+        elseif(isset($get["route"]) && $get["route"] === "create-user" ){
+            
+            
+            
+            $am->createUser();
+        
+        }
+        elseif(isset($get["route"]) && $get["route"] === "delete-user" ){
+            
+            
+            
+            $am->deleteUser($get["user"]);
         
         }
         

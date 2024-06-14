@@ -1,0 +1,319 @@
+<main>
+    <h1>Espace Admin</h1>
+  <p>Bonjour administrateur solaire du nom de :
+  <?= $_SESSION["name"] ?>
+  
+  </p> 
+  
+  <section>
+      
+      <h2>Gestion des utilisateurs</h2>
+      <form method="post" action="index.php?route=create-user">
+    <input type="text" name="name" placeholder="name"/>
+    <input type="text" name="password" placeholder="password"/>
+    <input type="text" name="email" placeholder="email"/>
+    <input type="text" name="role" placeholder="role" />
+    
+    <input type="submit" value="Créer un utilisateur" />
+</form>
+  
+
+  
+  
+  
+    <table>
+    <thead>
+    <tr>
+        <th>
+            #
+        </th>
+        <th>
+            Nom d'utilisateur
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Mot de passe
+        </th>
+        <th>
+            Rôle
+        </th>
+        <th>
+            Modifier
+        </th>
+        <th>
+            Supprimer
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+        <?php foreach($userList as $key => $value){
+        
+        ?>
+        <tr>
+            <td><?= $value->getId() ?></td>
+            <td><?= $value->getName() ?></td>
+            <td><?= $value->getEmail() ?></td>
+            <td><?= $value->getPassword() ?></td>
+            <td><?= $value->getRole() ?></td>
+            <td>
+                <button><a href="index.php?route=checkUser&user=<?= $value->getId()?>">Modifier</a></button>
+            </td>
+            <td>
+                <button><a href="index.php?route=delete-user&user=<?= $value->getId()?>">Supprimer</a></button>
+            </td>
+        </tr>
+        <?php } ?>
+    </tbody>
+    <tfoot>
+    <tr>
+        <th>
+            #
+        </th>
+        <th>
+            Nom d'utilisateur
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Mot de passe
+        </th>
+        <th>
+            Rôle
+        </th>
+        <th>
+            Modifier
+        </th>
+        <th>
+            Supprimer
+        </th>
+    </tr>
+    </tfoot>
+</table>
+      
+      
+      
+  </section>
+  <section>
+      <h2>Gestion des messages</h2>
+      <form method="post" action="index.php?route=create-post">
+    <input type="text" name="title" placeholder="title"/>
+    <input type="text" name="excerpt" placeholder="excerpt"/>
+    <select name="auteur" id="auteur">
+  <option value="">--Auteur--</option>
+  <?php foreach($userList as $user) {  ?>
+  <option value="<?= $user->getId() ?>"><?= $user->getName() ?></option>
+  <?php }  ?>
+</select>
+<select name="categories" id="categories">
+  <option value="">--Catégorie--</option>
+  <?php foreach($categoryList as $category) {  ?>
+  <option value="<?= $category->getId() ?>"><?= $category->getName() ?></option>
+  <?php }  ?>
+</select>
+    
+    <textarea name="content" cols="50"></textarea>
+    <input type="submit" value="Nouveau message" />
+</form>
+      
+      <table>
+    <thead>
+    <tr>
+        <th>
+            #
+        </th>
+        <th>
+            Contenu
+        </th>
+        <th>
+            Auteur
+        </th>
+        <th>
+            Id Salon
+        </th>
+        <th>
+            Nom Salon
+        </th>
+        
+        <th>
+            Modifier
+        </th>
+        <th>
+            Supprimer
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+        <?php foreach($postList as $value){
+        
+        ?>
+        <tr>
+            <td><?= $id = $value->getId() ?></td>
+            <td><?= $value->getContent() ?></td>
+            <td><?= $value->getAuthor()->getName() ?></td>
+            
+            <td><?= $value->getSalon()->getId()?></td>
+            <td><?= $value->getSalon()->getName()?></td>
+            <td>
+                <button><a href="index.php?route=checkpost&post=<?= $id?>">Modifier</a></button>
+            </td>
+            <td>
+                <button><a href="index.php?route=deletepost&post=<?= $id?>">Supprimer</a></button>
+            </td>
+        </tr>
+        <?php } ?>
+    </tbody>
+    <tfoot>
+    <tr>
+        <th>
+            #
+        </th>
+        <th>
+            Contenu
+        </th>
+        <th>
+            Auteur
+        </th>
+        <th>
+            Id Salon
+        </th>
+        <th>
+            Nom Salon
+        </th>
+        
+        <th>
+            Modifier
+        </th>
+        <th>
+            Supprimer
+        </th>
+    </tr>
+    </tfoot>
+</table>
+      
+      
+  </section>
+  
+  <section>
+      <h2>Gestion des salons</h2>
+      <table>
+    <thead>
+    <tr>
+        <th>
+            #
+        </th>
+        <th>
+            Nom
+        </th>
+        
+        <th>
+            Modifier
+        </th>
+        <th>
+            Supprimer
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+        <?php foreach($salonList as $value){
+        
+        ?>
+        <tr>
+            <td><?= $id = $value->getId() ?></td>
+            <td><?= $value->getName() ?></td>
+            <td>
+                <button><a href="index.php?route=checkpost&post=<?= $id?>">Modifier</a></button>
+            </td>
+            <td>
+                <button><a href="index.php?route=deletepost&post=<?= $id?>">Supprimer</a></button>
+            </td>
+        </tr>
+        <?php } ?>
+    </tbody>
+    <tfoot>
+    <tr>
+        <th>
+            #
+        </th>
+        <th>
+            Nom
+        </th>
+        
+        <th>
+            Modifier
+        </th>
+        <th>
+            Supprimer
+        </th>
+    </tr>
+    </tfoot>
+</table>
+
+
+  </section>
+  
+  <section>
+      <h2>Gestion des catégories</h2>
+      
+       <table>
+    <thead>
+    <tr>
+        <th>
+            #
+        </th>
+        <th>
+            Nom
+        </th>
+        
+        <th>
+            Modifier
+        </th>
+        <th>
+            Supprimer
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+        <?php foreach($categoryList as $value){
+        
+        ?>
+        <tr>
+            <td><?= $id = $value->getId() ?></td>
+            <td><?= $value->getName() ?></td>
+            <td>
+                <button><a href="index.php?route=checkpost&post=<?= $id?>">Modifier</a></button>
+            </td>
+            <td>
+                <button><a href="index.php?route=deletepost&post=<?= $id?>">Supprimer</a></button>
+            </td>
+        </tr>
+        <?php } ?>
+    </tbody>
+    <tfoot>
+    <tr>
+        <th>
+            #
+        </th>
+        <th>
+            Nom
+        </th>
+        
+        <th>
+            Modifier
+        </th>
+        <th>
+            Supprimer
+        </th>
+    </tr>
+    </tfoot>
+</table>
+
+
+      
+      
+      
+  </section>
+    
+</main>

@@ -37,10 +37,15 @@
                         connexion
                     </a>
                 </li>
-                <?php } else { ?>
+                <?php } elseif($_SESSION["role"] === "USER") { ?>
                 <li><a href="index.php?route=user-profil">espace perso</a></li>
                     <li><a href="index.php?route=deconnexion">déconnexion</a></li>
+                    <?php }
+                    elseif($_SESSION["role"] === "ADMIN") { ?>
+                <li><a href="index.php?route=adminpage">espace admin</a></li>
+                    <li><a href="index.php?route=deconnexion">déconnexion</a></li>
                     <?php }?>
+                    
                     <li>
                     <a href="index.php?route=inscription">
                         inscription

@@ -22,9 +22,11 @@ class SalonManager extends AbstractManager
 
         foreach ($result as $item) {
             $salon = new Salon($item["name"]);
-            $salon->setId($item["id"]);
+            $salon->setId($item["salon_id"]);
+            array_push($salons, $salon);
         }
-
+        
+        
         return $salons;
     }
 

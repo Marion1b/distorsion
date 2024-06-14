@@ -97,18 +97,18 @@ class UserManager extends AbstractManager
 
 
         $parameters = [
-            'id' => $user
+            'user_id' => $user
         ];
 
 
 
-        $query = $this->db->prepare("DELETE FROM users WHERE id=:id");
+        $query = $this->db->prepare("DELETE FROM users WHERE user_id=:user_id");
 
 
         $query->execute($parameters);
     }
 
-    public function ModifyUser(User $user)
+    public function modifyUser(User $user)
     {
 
         $parameters = [
