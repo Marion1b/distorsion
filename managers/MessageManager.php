@@ -127,6 +127,9 @@ class MessageManager extends AbstractManager
 
     public function findByUser(int $userId): array
     {
+        $sm = new SalonManager();
+        $um = new UserManager();
+
 
         $parameters = [
             'user_id' => $userId
