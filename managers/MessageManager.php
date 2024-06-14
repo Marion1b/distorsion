@@ -124,38 +124,37 @@ class MessageManager extends AbstractManager
         return $posts;
     }
 
-    
-    public function findByUser(int $userId) : array
-        {
-            
-            $parameters = [
+
+    public function findByUser(int $userId): array
+    {
+
+        $parameters = [
             'user_id' => $userId
-                    ];
-        
-            $query = $this->db->prepare('SELECT * FROM messages WHERE user_id=:user_id');
-        
-            $query->execute($parameters);
-        
-            $result = $query->fetchAll(PDO::FETCH_ASSOC);
-            $posts = [];
-        
-            foreach($result as $item)
-            {
+        ];
+
+        $query = $this->db->prepare('SELECT * FROM messages WHERE user_id=:user_id');
+
+        $query->execute($parameters);
+
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        $posts = [];
+
+        foreach ($result as $item) {
             $salon = $sm->findOne($item["salon_id"]);
             $user = $um->findOne($item["user_id"]);
             $post = new Message($item["content"], $user, $salon, DateTime::createFromFormat('Y-m-d H:i:s', $item["datetime"]));
             $post->setId($item["message_id"]);
-            
-            $posts[] = $post;
-            }
 
-            return $posts;
+            $posts[] = $post;
         }
-    
-    
-    public function deleteMessage(int $message) : void
-        {
-        
+
+        return $posts;
+    }
+
+
+    public function deleteMessage(int $message): void
+    {
+
 
         $parameters = [
             'id' => $message
@@ -192,8 +191,6 @@ class MessageManager extends AbstractManager
 
     public function createMessage(Message $message): void
     {
-
-
         $query = $this->db->prepare('INSERT INTO messages (message_id, content, user_id, salon_id, datetime) VALUES (:message_id, :content, :user_id, :salon_id, :datetime)');
 
         $parameters = [
@@ -202,9 +199,7 @@ class MessageManager extends AbstractManager
             'content' => $message->getContent(),
             'user_id' => $message->getAuthor()->getId(),
             'salon_id' => $message->getSalon()->getId(),
-            'datetime' => $message->getCreatedAt(),
-
-
+            'datetime' => $message->getCreatedAt()->format('Y-m-d H:i:s'),
 
         ];
 
