@@ -1,13 +1,15 @@
-<h1>Le chat</h1>
+<main class="main-chat">
 
-<section class="categories">
+<h1 hidden>Le chat</h1>
+
+<aside class="categories">
     <h2>Les catégories</h2>
-    <ul>
+    <ul class="navbar-categories">
         <?php
         foreach ($categories as $category) {
         ?>
             <li><?= $category->getName() ?></li>
-            <ul>
+            <ul class="navbar-salons">
                 <?php
 
 
@@ -16,7 +18,13 @@
                 foreach ($salons as $salon) {
 
                 ?>
-                    <li><a href="index.php?route=chat&salon=<?= $salon->getId() ?>"><?= $salon->getName() ?></a></li>
+                    <li <?php if(isset($_GET["salon"]) && $_GET["salon"] === (string)$salon->getId()){
+                        ?>class="salon-active"<?php
+                    } 
+                    ?>>
+                        <a href="index.php?route=chat&salon=<?= $salon->getId() ?>"><?= $salon->getName() ?>
+                        </a>
+                    </li>
                 <?php
                 }
                 ?>
@@ -25,26 +33,36 @@
         }
         ?>
     </ul>
-</section>
+    </aside>
 
-<section class="messages">
+
+<div class="background-chat">
+<section class="chat-container">
+    <div class="flex-top-container">
     <h2>Salon <?= $sm->findOne($id)->getName() ?> </h2>
+    <div class="messages-container">
     <?php
     foreach ($messages as $message) {
     ?>
-        <p>Le <?= $message->getCreatedAt()->format('d/m/Y') ?> à <?= $message->getCreatedAt()->format('h:i:s') ?></p>
-        <p><?= $message->getContent() ?></p>
-        <p><?= $message->getAuthor()->getName() ?></p>
+        <article class="salons-message">
+        <p class="salons-message-date">Le <?= $message->getCreatedAt()->format('d/m/Y') ?> à <?= $message->getCreatedAt()->format('h:i:s') ?></p>
+        <div class="message-user">
+        <p class="salons-message-content"><?= $message->getContent() ?></p>
+        <p class="salons-message-user"><?= $message->getAuthor()->getName() ?></p>
+        </div>
+        </article>
     <?php
     }
     ?>
-</section>
-
-<section class="chat">
-    <h2 hidden>Le chat</h2>
-    <form action="" method="post">
-        <label for="message">Message</label>
-        <textarea name="message" id="message"></textarea>
+    </div>
+    </div>
+    <form class="chat-form" action="index.php?route=check-message&salon=<?= $id ?>" method="post">
+        <div class="field">
+            <label for="message">Message</label>
+            <textarea name="message" id="message"></textarea>
+        </div>
         <button type="submit">Envoyer</button>
     </form>
 </section>
+</div>
+</main>

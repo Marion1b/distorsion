@@ -1,11 +1,11 @@
-<main>
-    <section>
-       <h2>Bienvenue <?= $user->getName()?></h2>
-    
-    <p>Email du compte : <?= $user->getEmail() ?></p> 
+<main class="espace-perso-main">
+    <section class="espace-perso-section-title">
+        <h1>Bienvenue dans ton espace cosmique <strong><?= $user->getName() ?></strong></h1>
+
+        <p>Email du compte : <strong><?= $user->getEmail() ?></strong></p>
     </section>
-    <section>
-        
+    <section class="espace-perso-section-messages">
+        <h2>Voici toutes tes fabuleuses participations à notre communauté:</h2>
         <table>
             <thead>
                 <th>
@@ -17,27 +17,29 @@
                 <th>
                     Contenu
                 </th>
-                
-                
-                
+
+
+
             </thead>
             <tbody>
-                <tr>
-                    <?php foreach($userMessages as $messages)  {?>
-                <td><?= $messages->getId() ?></td>
-                <td><?= $messages->getSalon()->getName() ?></td>
-                <td><?= $messages->getContent() ?></td>
+                <?php foreach ($userMessages as $messages) { ?>
+                    <tr>
+
+                        <td><?= $messages->getId() ?></td>
+                        <td><a href="index.php?route=chat&salon=<?= $messages->getSalon()->getId() ?>"><?= $messages->getSalon()->getName() ?></a></td>
+                        <td><?= $messages->getContent() ?></td>
+
+                    </tr>
                 <?php } ?>
-            </tr>
             </tbody>
-            
+
         </table>
-        
-        
+
+
     </section>
-    
-    
-    
-    
-    
+
+
+
+
+
 </main>

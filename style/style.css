@@ -1,228 +1,431 @@
 /* ==========================================================================
 variables
 ========================================================================== */
-:root{
-    --marian-blue: #393d8aff;
-    --dark-blue: #3b0ab1ff;
-    --fawn: #f1ac6fff;
-    --maize: #f8e56cff;
-    --zomp: #669f80ff;
+:root {
+  --marian-blue: #393d8aff;
+  --dark-blue: #3b0ab1ff;
+  --fawn: #f1ac6fff;
+  --maize: #f8e56cff;
+  --zomp: #669f80ff;
+  --azurite: #21d4e0;
 }
-
 
 /* ==========================================================================
 TOOLS
 ========================================================================== */
 
 * {
-    box-sizing: border-box;
-    margin: 0;
+  box-sizing: border-box;
+  margin: 0;
 }
 
 html {
-
-    font-size: 62.5%; 
+  font-size: 62.5%;
 }
 
 body {
-    font-size: 1.6rem;
-    font-family: "Libre Baskerville", serif;
+  font-size: 1.6rem;
+  font-family: 'Libre Baskerville', serif;
 }
 
 /* ==========================================================================
 Header
 ========================================================================== */
-header{
-    background-color: var(--zomp);
-    padding: 1.5rem 0;
+header {
+  background-color: var(--zomp);
+  padding: 1.5rem 0;
 }
 
-.header-navbar{
-    display: flex;
-    list-style-type: none;
-    justify-content: space-around;
-    align-items: center;
+.header-navbar {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.header-navbar a{
-    color: #000;
-    text-decoration: none;
+.header-navbar a {
+  color: #000;
+  text-decoration: none;
 }
 
-.header-navbar img{
-    width: 7.5rem;
+.header-navbar img {
+  width: 7.5rem;
 }
 
-.navbar-right{
-    display: flex;
+.navbar-right {
+  display: flex;
 }
 
-.navbar-right a{
-    padding: 2rem;
+.navbar-right a {
+  padding: 2rem;
 }
 
 /* ==========================================================================
 Home
 ========================================================================== */
 
-.home-page{
-    background-image: url("img/buddha.png");
-    background-size: cover;
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+.home-page {
+  background-image: url('img/buddha.png');
+  background-size: cover;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
 
-.home-page h1{
-    background-color: rgba(241, 172, 111, 0.808);
-    backdrop-filter: blur(10px);
-    width: 85rem;
-    padding: 2rem;
-    font-weight: 400;
-    font-size: 1.6rem;
-    border-radius: 2rem;
-    text-align: center;
+.home-page h1 {
+  background-color: rgba(241, 172, 111, 0.808);
+  backdrop-filter: blur(10px);
+  width: 85rem;
+  padding: 2rem;
+  font-weight: 400;
+  font-size: 1.6rem;
+  border-radius: 2rem;
+  text-align: center;
 }
 
-.home-page button{
-    padding:3rem 8rem;
-    border: none;
-    border-radius: 2rem;
-    background: linear-gradient(to right, var(--fawn), var(--maize), var(--zomp));
-    font-family: "Libre Baskerville", serif;
-    font-size: 2rem;
-    transition: all 200ms ease-in-out;
-    cursor: pointer;
+.home-page button {
+  padding: 3rem 8rem;
+  border: none;
+  border-radius: 2rem;
+  background: linear-gradient(to right, var(--fawn), var(--maize), var(--zomp));
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2rem;
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
 }
 
-.home-page button:hover{
-    transform: translate(.5rem, -.5rem);
-    box-shadow: -.5rem .5rem 1rem #3b0ab1a1;
+.home-page button:hover {
+  transform: translate(0.5rem, -0.5rem);
+  box-shadow: -0.5rem 0.5rem 1rem #3b0ab1a1;
 }
 
 /* ==========================================================================
 CHAT
 ========================================================================== */
 
-.main-chat{
-    display: flex;
-    justify-content: space-between;
-    color: #fff;
+.main-chat {
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
 }
 
-.categories{
-    background-color: var(--marian-blue);
-    padding: 2rem;
-    height: 90vh;
-    width: 30%;
+.categories {
+  background-color: var(--marian-blue);
+  padding: 2rem;
+  height: 90vh;
+  width: 30%;
 }
 
-.categories h2{
-    margin: 5rem 0;
-    font-weight: bold;
+.categories h2 {
+  margin: 5rem 0;
+  font-weight: bold;
 }
 
-.navbar-categories{
-    list-style-type: none;
-    padding: 0;
-    line-height: 3rem;
-    font-size: 2rem;
+.navbar-categories {
+  list-style-type: none;
+  padding: 0;
+  line-height: 3rem;
+  font-size: 2rem;
 }
 
 .navbar-salons{
     padding: 0;
     list-style: none;
     border-left: solid #fff .3rem;
+    font-size: 1.6rem;   
+    margin: 2rem 0;
+
+}
+
+.navbar-salons li {
+  padding-left: 1rem;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+.navbar-salons li:hover {
+  background-color: var(--zomp);
+}
+
+
+.navbar-salons a{
+    color: #fff;
+    text-decoration: none;
     font-size: 1.6rem;
-}
-
-.navbar-salons li{
-    padding-left: 1rem;
-    cursor: pointer;
-    transition: all 200ms ease-in-out;
-}
-
-.navbar-salons li:hover{
-    background-color: var(--zomp);
 }
 
 .salon-active{
     background-color: var(--zomp);
+
 }
 
-.background-chat{
-    background-image: url("img/chakra.png");
-    background-size: cover;
-    width: 70%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.background-chat {
+  background-image: url('img/chakra.png');
+  background-size: cover;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.chat-container{
-    background-color: #393d8aaf;
-    backdrop-filter: blur(10px);
-    height: 80%;
-    width: 80%;
-    max-width: 80rem;
-    border-radius: 4rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+.chat-container {
+  background-color: #393d8aaf;
+  backdrop-filter: blur(10px);
+  height: 80%;
+  width: 80%;
+  max-width: 80rem;
+  border-radius: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
+
 
 .chat-container h2{
     font-family: "Kaushan Script", cursive;
     font-size: 2.4rem;
     margin: 2rem;
+    text-align: center;
 }
 
-.chat-form{
-    display: flex;
-    align-items: end;
+.chat-container-chose{
     margin: 2rem;
 }
 
-.chat-form .field{
+.messages-container{
+    height: 45rem;
+    overflow: scroll;
+}
+
+.salons-message-date{
+    font-size: 1rem;
+    margin: 1rem 1.5rem;
+}
+
+.salons-message-content{
+    background: var(--marian-blue);
+    margin: 0rem 1rem;
+    border-radius: 2rem;
+    font-size: 1.2rem;
+    padding: 1.5rem;
+}
+
+.salons-message-user{
+    font-size: 1rem;
+}
+
+.message-user{
     display: flex;
-    flex-direction: column;
+    align-items: end;
+    margin-right: 1rem;
+
 }
 
-.chat-form .field label{
-    font-size: 1.2rem;
-    margin: 1rem;
+.chat-form {
+  display: flex;
+  align-items: end;
+  margin: 2rem;
 }
 
-.chat-form .field textarea{
-    width: 40vw;
-    max-width: 50rem;
-    margin-right: 2rem;
-    background-color: var(--marian-blue);
-    border: var(--maize) 3px solid;
-    border-radius: 1.5rem;
-    font-family: "Libre Baskerville", serif;
-    font-size: 1.2rem;
-    color: #fff;
-    padding: .5rem;
+.chat-form .field {
+  display: flex;
+  flex-direction: column;
 }
 
-.chat-form .field textarea:focus{
-    outline: var(--zomp) .3rem dotted;
+.chat-form .field label {
+  font-size: 1.2rem;
+  margin: 1rem;
 }
 
-.chat-form button{
-    background-color: var(--marian-blue);
-    border: var(--maize) .3rem solid;
-    padding: 1.2rem;
-    border-radius: 1rem;
-    color: #fff;
-    transition: all 200ms ease-in-out;
-    cursor: pointer;
+.chat-form .field textarea {
+  width: 40vw;
+  max-width: 50rem;
+  margin-right: 2rem;
+  background-color: var(--marian-blue);
+  border: var(--maize) 3px solid;
+  border-radius: 1.5rem;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.2rem;
+  color: #fff;
+  padding: 0.5rem;
 }
 
-.chat-form button:hover{
-    outline: var(--zomp) .3rem dotted;
+.chat-form .field textarea:focus {
+  outline: var(--zomp) 0.3rem dotted;
+}
+
+.chat-form button {
+  background-color: var(--marian-blue);
+  border: var(--maize) 0.3rem solid;
+  padding: 1.2rem;
+  border-radius: 1rem;
+  color: #fff;
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+}
+
+.chat-form button:hover {
+  outline: var(--zomp) 0.3rem dotted;
+}
+
+/* ==========================================================================
+a propos
+========================================================================== */
+
+.a-propos-background {
+  background-image: url('img/maya.png');
+  background-size: cover;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.a-propos h1 {
+  font-family: 'Kaushan Script', cursive;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.a-propos-section {
+  background-color: #f8e56cd0;
+  width: 80%;
+  max-width: 80rem;
+  padding: 4rem;
+  border-radius: 2rem;
+}
+
+.a-propos-section p {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+
+/* ==========================================================================
+Inscription / connexion
+========================================================================== */
+
+.main-inscription,
+.main-connexion {
+  height: 90vh;
+  background-image: url('img/spiritualite.png');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.connexion-container,
+.inscription-container {
+  background-color: rgba(241, 172, 111, 0.705);
+  padding: 4rem;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  max-width: 80rem;
+}
+
+.connexion-container h1,
+.inscription-container h1 {
+  font-family: 'Kaushan Script', cursive;
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+}
+
+.connexion-container form,
+.inscription-container form {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+}
+
+.connexion-container form label,
+.inscription-container form label {
+  margin: 1rem 0;
+}
+
+.connexion-container form input,
+.inscription-container form input {
+  border: var(--marian-blue) 0.3rem solid;
+  background-color: transparent;
+  padding: 1rem 5rem;
+  border-radius: 2rem;
+}
+
+.connexion-container form input:focus,
+.inscription-container form input:focus {
+  outline: var(--zomp) 3px dotted;
+}
+
+.connexion-container form button,
+.inscription-container form button {
+  border: var(--marian-blue) 0.2rem solid;
+  border-radius: 1rem;
+  background: linear-gradient(to right, var(--fawn), var(--maize), var(--zomp));
+  margin: 3rem 0;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+.connexion-container form button:hover,
+.inscription-container form button:hover {
+  transform: translate(0.5rem, -0.5rem);
+  box-shadow: -0.5rem 0.5rem 0.5rem var(--zomp);
+}
+
+/* ==========================================================================
+espace perso
+========================================================================== */
+
+.espace-perso-main {
+  background: url(/style/img/page-perso.jpeg);
+  background-size: cover;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5rem;
+}
+
+.espace-perso-main section {
+  background-color: var(--marian-blue);
+  color: var(--maize);
+  width: 80%;
+  max-width: 80rem;
+  padding: 4rem;
+  border-radius: 2rem;
+}
+.espace-perso-main strong {
+  color: var(--azurite);
+  font-size: 1.4em;
+}
+.espace-perso-section-messages table {
+  border: 2px solid var(--azurite);
+  width: 100%;
+  border-radius: 2rem;
+  text-align: center;
+}
+.espace-perso-section-messages thead {
+  color: var(--fawn);
+  border-bottom: solid 2px var(--azurite);
+}
+.espace-perso-section-messages a {
+  color: var(--azurite);
+  font-family: 'Kaushan Script', cursive;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+
+.espace-perso-main h1,
+.espace-perso-main h2 {
+  font-family: 'Kaushan Script', cursive;
 }

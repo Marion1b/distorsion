@@ -98,7 +98,7 @@ class AuthController
         $route = "deconnexion";
         header('Location: index.php');
     }
-    public function error(): void
+    public function error($error): void
     {
         $route = "error";
         require 'templates/layout.phtml';
