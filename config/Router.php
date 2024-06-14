@@ -41,6 +41,13 @@ class Router
         } elseif (isset($get["route"]) && $get["route"] === "deconnexion") {
 
             $auc->disconnect();
+        } elseif (isset($get["route"]) && $get["route"] === "error") {
+            if (isset($get['error'])) {
+                $error = $get['error'];
+            } else {
+                $error = "Erreur mystérieuse";
+            }
+            $auc->error($error);
         } else if (!isset($get["route"])) {
 
             $pc->home();

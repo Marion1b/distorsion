@@ -35,13 +35,17 @@ class ChatController
             $um = new UserManager;
             $currentDateTime = new DateTime(date('Y-m-d H:i:s'));
 
+
+            var_dump($_SESSION['email']);
             $user =  $um->findByEmail($_SESSION["email"]);
             $salon = $sm->findOne($id);
             // private string $content, private User $author, private Salon $salon, private DateTime $createdAt = new DateTime())
             $message = new Message($_POST["message"], $user, $salon, $currentDateTime);
             $mm->createMessage($message);
+            // header("Location: index.php?route=chat&salon=" . $id);
+        } else {
+            $error = "Veuillez rejoindre la communauté des distordu-e-s pour pouvoir poster un message.";
+            header("Location: index.php?route=error&error=" . $error);
         }
-
-        header("Location: index.php?route=chat&salon=" . $id);
     }
 }
