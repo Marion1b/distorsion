@@ -130,11 +130,13 @@ CHAT
   font-size: 2rem;
 }
 
-.navbar-salons {
-  padding: 0;
-  list-style: none;
-  border-left: solid #fff 0.3rem;
-  font-size: 1.6rem;
+.navbar-salons{
+    padding: 0;
+    list-style: none;
+    border-left: solid #fff .3rem;
+    font-size: 1.6rem;   
+    margin: 2rem 0;
+
 }
 
 .navbar-salons li {
@@ -147,8 +149,16 @@ CHAT
   background-color: var(--zomp);
 }
 
-.salon-active {
-  background-color: var(--zomp);
+
+.navbar-salons a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.6rem;
+}
+
+.salon-active{
+    background-color: var(--zomp);
+
 }
 
 .background-chat {
@@ -173,10 +183,45 @@ CHAT
   align-items: center;
 }
 
-.chat-container h2 {
-  font-family: 'Kaushan Script', cursive;
-  font-size: 2.4rem;
-  margin: 2rem;
+
+.chat-container h2{
+    font-family: "Kaushan Script", cursive;
+    font-size: 2.4rem;
+    margin: 2rem;
+    text-align: center;
+}
+
+.chat-container-chose{
+    margin: 2rem;
+}
+
+.messages-container{
+    height: 45rem;
+    overflow: scroll;
+}
+
+.salons-message-date{
+    font-size: 1rem;
+    margin: 1rem 1.5rem;
+}
+
+.salons-message-content{
+    background: var(--marian-blue);
+    margin: 0rem 1rem;
+    border-radius: 2rem;
+    font-size: 1.2rem;
+    padding: 1.5rem;
+}
+
+.salons-message-user{
+    font-size: 1rem;
+}
+
+.message-user{
+    display: flex;
+    align-items: end;
+    margin-right: 1rem;
+
 }
 
 .chat-form {
